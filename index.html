@@ -7,48 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>QuickTip</h1>
-        </header>
-
-        <section class="calculator-card">
-            <div class="input-group">
-                <label for="billAmount">Bill Amount ($)</label>
-                <input type="number" id="billAmount" placeholder="0.00" step="0.01">
-            </div>
-
-            <div class="input-group">
-                <label>Select Tip (%)</label>
-                <div class="tip-grid">
-                    <button class="tip-btn" data-pct="15">15%</button>
-                    <button class="tip-btn" data-pct="20">20%</button>
-                    <button class="tip-btn" data-pct="25">25%</button>
-                    <input type="number" id="customTip" placeholder="Custom %">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="peopleCount">Number of People</label>
-                <input type="number" id="peopleCount" placeholder="1" min="1">
-            </div>
-
-            <hr>
-
-            <div class="results">
-                <div class="result-row">
-                    <span>Tip Amount:</span>
-                    <strong id="displayTip">$0.00</strong>
-                </div>
-                <div class="result-row total">
-                    <span>Total Per Person:</span>
-                    <strong id="displayPerPerson">$0.00</strong>
-                </div>
-            </div>
-            <div style="text-align:center; margin-top:1.5rem;">
-                <button id="resetBtn" type="button" style="padding:10px 24px; background:var(--dark); color:white; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">Reset</button>
-            </div>
-        </section>
+    <div class="device-container">
+        <div class="lcd-display">
+            <div id="lcd-main" class="lcd-main">Tip Amount: <span id="displayTip">$0.00</span></div>
+            <div id="lcd-sub" class="lcd-sub">Total Per Person: <span id="displayPerPerson">$0.00</span></div>
+        </div>
+        <div class="logo"><img src="images/SDGKU.png" alt="Logo" class="logo-img"></div>
+        <div class="button-row">
+            <input type="number" id="billAmount" class="device-btn" placeholder="Bill Amount ($)" step="0.01">
+            <input type="number" id="peopleCount" class="device-btn" placeholder="People" min="1">
+        </div>
+        <div class="button-row">
+            <button class="tip-btn device-btn" data-pct="15">15%</button>
+            <button class="tip-btn device-btn" data-pct="20">20%</button>
+            <button class="tip-btn device-btn" data-pct="25">25%</button>
+            <input type="number" id="customTip" class="device-btn" placeholder="Custom %">
+        </div>
+        <div class="button-row">
+            <button id="resetBtn" class="device-btn wide-btn" type="button">Reset</button>
+            <button id="calculateBtn" class="device-btn wide-btn" type="button">Calculate</button>
+        </div>
     </div>
     <script src="script.js" defer></script>
 </body>

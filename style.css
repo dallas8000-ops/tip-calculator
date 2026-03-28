@@ -1,75 +1,150 @@
+
 :root {
-    --primary: #2ec4b6;
-    --dark: #011627;
-    --light: #f1faee;
+    --device-bg: #35383b;
+    --lcd-bg: #e6f0e6;
+    --lcd-border: #bfc9bf;
+    --btn-bg: #6d6e71;
+    --btn-text: #fff;
+    --btn-border: #222;
+    --accent: #e95c2b;
+    --logo-bg: #444;
+    --logo-accent: #e95c2b;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--light);
+    background: #222;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.device-container {
+    background: linear-gradient(145deg, #43464a 0%, #232427 100%);
+    border-radius: 32px;
+    box-shadow:
+        0 8px 32px 0 rgba(0,0,0,0.45),
+        0 1.5px 0.5px 0 #fff2 inset,
+        0 2px 8px 0 #0008 inset;
+    padding: 36px 28px 28px 28px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 1.5px solid #555a;
+}
+
+.lcd-display {
+    background: linear-gradient(180deg, #f8fff8 80%, #dbe6db 100%);
+    border: 2.5px solid var(--lcd-border);
+    border-radius: 14px;
+    width: 97%;
+    margin-bottom: 22px;
+    padding: 22px 16px 14px 16px;
+    box-shadow:
+        0 2px 12px 0 #0002,
+        0 1.5px 0.5px 0 #fff4 inset,
+        0 2px 8px 0 #bfc9bf44 inset;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+.lcd-display::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 80%;
+    height: 18px;
+    background: linear-gradient(90deg, #fff8 60%, #e0e0e000 100%);
+    border-radius: 8px;
+    opacity: 0.45;
+    pointer-events: none;
+}
+.lcd-main {
+    font-size: 1.15rem;
+    color: #222;
+    font-family: 'Consolas', 'Courier New', monospace;
+    margin-bottom: 4px;
+}
+.lcd-sub {
+    font-size: 1rem;
+    color: #444;
+    font-family: 'Consolas', 'Courier New', monospace;
+}
+
+
+.logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 22px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px #0003, 0 1.5px 0.5px #fff2 inset;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #444 60%, #222 100%);
+}
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px #0004, 0 1.5px 0.5px #fff2 inset;
+    background: var(--logo-bg);
+}
+
+.button-row {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
-}
-
-.container {
-    width: 90%;
-    max-width: 400px;
-}
-
-.calculator-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.input-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: var(--dark);
-}
-
-input {
+    gap: 12px;
+    margin-bottom: 14px;
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
 }
 
-.tip-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+.device-btn {
+    background: linear-gradient(180deg, #7a7b7e 0%, #44464a 100%);
+    color: var(--btn-text);
+    border: 2.5px solid #222b;
+    border-radius: 16px;
+    font-size: 1.13rem;
+    padding: 16px 0;
+    width: 100%;
+    max-width: 148px;
+    text-align: center;
+    margin: 0 2px;
+    box-shadow:
+        0 2.5px 8px #0002,
+        0 1.5px 0.5px #fff2 inset,
+        0 2px 8px #2222 inset;
+    font-weight: 700;
+    outline: none;
+    transition: background 0.18s, box-shadow 0.18s;
+    letter-spacing: 0.01em;
+}
+.device-btn:active {
+    background: linear-gradient(180deg, #555 0%, #222 100%);
+    box-shadow: 0 1px 2px #0004;
+}
+.wide-btn {
+    max-width: 240px;
 }
 
-.tip-btn {
-    padding: 10px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+input.device-btn[type="number"]::-webkit-input-placeholder {
+    color: #bbb;
+    opacity: 1;
 }
-
-.results {
-    margin-top: 1.5rem;
+input.device-btn[type="number"]::-moz-placeholder {
+    color: #bbb;
+    opacity: 1;
 }
-
-.result-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+input.device-btn[type="number"]:-ms-input-placeholder {
+    color: #bbb;
+    opacity: 1;
 }
-
-.total {
-    font-size: 1.4rem;
-    color: var(--primary);
+input.device-btn[type="number"]::placeholder {
+    color: #bbb;
+    opacity: 1;
 }
